@@ -207,6 +207,20 @@ RCT_EXPORT_MODULE()
     isSetupNatively = YES;
 }
 
+RCT_EXPORT_METHOD(resetCallkit)
+{
+#ifdef DEBUG
+    NSLog(@"[RNCallKeep][resetCallkit]");
+#endif
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+    if (self.callKeepProvider != nil) {
+        [self.callKeepProvider invalidate];
+    }
+    sharedProvider = nil;
+    _isReachable = NO;
+}
+
 RCT_EXPORT_METHOD(setup:(NSDictionary *)options)
 {
     if (isSetupNatively) {

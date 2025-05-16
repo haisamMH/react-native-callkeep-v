@@ -232,6 +232,8 @@ class RNCallKeep {
 
   endAllCalls = () => RNCallKeepModule.endAllCalls();
 
+  resetCallkit = () => RNCallKeepModule.resetCallkit();
+
   supportConnectionService = () => supportConnectionService;
 
   hasPhoneAccount = async () => (isIOS ? true : await RNCallKeepModule.hasPhoneAccount());
